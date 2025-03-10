@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ show.title }} - TV Series Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('index') }}" class="back-button">← Back to List</a>
+        
+        <div class="show-details">
+            <div class="show-header">
+                <div class="show-image">
+                    <img src="{{ show.image }}" alt="{{ show.title }}" />
+                </div>
+                <div class="show-info">
+                    <h1>{{ show.title }}</h1>
+                    <div class="show-meta">
+                        <span class="rating">Rating: {{ show.rating }}</span>
+                        <span class="seasons">Seasons: {{ show.seasons }}</span>
+                    </div>
+                    <div class="genre-tags">
+                        {% for genre in show.genre %}
+                        <span class="genre">{{ genre }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="show-summary">
+                <h2>Summary</h2>
+                <p>{{ show.summary }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

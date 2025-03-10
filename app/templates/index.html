@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My TV Series Watch List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome To my TV series watch list</h1>
+        
+        <div class="series-grid">
+            {% for show in series %}
+            <a href="{{ url_for('show_details', show_id=show.id) }}" class="series-card-link">
+                <div class="series-card">
+                    <div class="series-image">
+                        <img src="{{ show.image }}" alt="{{ show.title }}" />
+                    </div>
+                    <h3 class="title">{{ show.title }}</h3>
+                    <p class="description">{{ show.description }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html> 
